@@ -2,7 +2,7 @@
 
 ![以精密锻炉与光路呈现多Agent工程协作的神机百炼概念图](assets/hero.png)
 
-# 神机百炼 · skill-forge
+# 神机百炼 / skill-forge-public
 
 ### 让每个 Agent 各司其职，让每次交付有据可循。
 

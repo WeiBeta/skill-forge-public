@@ -2,7 +2,7 @@
 
 ![A precision forge connecting a coordinated team of engineering tools](assets/hero.png)
 
-# 神机百炼 · skill-forge
+# 神机百炼 / skill-forge-public
 
 ### Give every agent a role. Give every change a trail.
 
