@@ -1,0 +1,269 @@
+{
+  "files": [
+    {
+      "bytes": 208,
+      "path": ".gitattributes",
+      "sha256": "74a638edd58d199f517650b73e8133b1efbe9110147cf08e1c13b259127a163b"
+    },
+    {
+      "bytes": 50,
+      "path": ".gitignore",
+      "sha256": "6c260faa0c615d3785e459090e93f719fdd26cb9ea3248d06656ce31bba98f3d"
+    },
+    {
+      "bytes": 863,
+      "path": "AGENTS.md",
+      "sha256": "65be64eced6103bece79534a952a0321e1153cde494d101488ba7114e44f4e91"
+    },
+    {
+      "bytes": 34523,
+      "path": "LICENSE",
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "bytes": 5560,
+      "path": "README.md",
+      "sha256": "d290e83354f5700baef884edafe1cf89a13821328e7cfe84073169b8bb75d7f2"
+    },
+    {
+      "bytes": 5079,
+      "path": "README.zh-CN.md",
+      "sha256": "15cfa55f6cf0e289f787fdd5d6d05c3388b451ee654fbac8846139ebf5c3d08c"
+    },
+    {
+      "bytes": 1289,
+      "path": "adapters/codex-native/README.md",
+      "sha256": "7e2eeb1e5a97025223e5bb3b74a71f564e44d0229a779dd149576ebfc4d29d86"
+    },
+    {
+      "bytes": 486,
+      "path": "adapters/codex-native/agents/reviewer.toml",
+      "sha256": "830113f81d4b0f465a39eb0e44e3743041f94f0a120a9878031c09b1cdff6645"
+    },
+    {
+      "bytes": 380,
+      "path": "adapters/codex-native/config.example.toml",
+      "sha256": "26aba508ba1caedac1623a950b202273b92f4ce3e194edd038a02088faafbc35"
+    },
+    {
+      "bytes": 375,
+      "path": "adapters/codex-native/rules.example.rules",
+      "sha256": "754b1fff72cd84ac333be2b1d40eaa313b0ea8d24b96b771c6fef4506b7006be"
+    },
+    {
+      "bytes": 1402,
+      "path": "adapters/opencodex/README.md",
+      "sha256": "6d8da7417e5767060a93fa1eb24b05e5bdb6aa2a4ba9bff854b2391b0eb2a8d0"
+    },
+    {
+      "bytes": 422,
+      "path": "adapters/opencodex/wait-v2.example.toml",
+      "sha256": "f8c171b51cbe9bbb74df047a9de29c700b809ab636da488db6400712e430d011"
+    },
+    {
+      "bytes": 1972845,
+      "path": "assets/hero.png",
+      "sha256": "84e73624de10fa8e394eeecfb237d7791b25905bc7cb994602b112f71e57e9c4"
+    },
+    {
+      "bytes": 1480,
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "8c0b6a2d4ae20ea149f550f1a33f3df767153b3f357ad5352d67d993f2461cd7"
+    },
+    {
+      "bytes": 1626,
+      "path": "docs/DEPLOYMENT-RECOVERY.md",
+      "sha256": "5b5538d2ff816151096dc52323588e808e44ec81d81fbc47c210f6d8fc93967f"
+    },
+    {
+      "bytes": 1721,
+      "path": "docs/PACKAGES.md",
+      "sha256": "89d693c7ae2980b956288d3dcadd3d3b1efe2dd0dee01ce76095cdb0a0d4201f"
+    },
+    {
+      "bytes": 1154,
+      "path": "docs/PERMISSIONS.md",
+      "sha256": "06b8c8b36af407445b2aae87c390f037d38434e7ee351762c146d83eddf2e080"
+    },
+    {
+      "bytes": 1248,
+      "path": "docs/QUICKSTART.md",
+      "sha256": "8035b4a394414239aa4f1bbd4093a29959560984b21bc09ebacd7021e7b39944"
+    },
+    {
+      "bytes": 1382,
+      "path": "docs/RUNTIME-CONTRACT.md",
+      "sha256": "14f26e3c5cf688e5cb22e3e0706ba0674e721cddacc13c40f3e0894eb9756a02"
+    },
+    {
+      "bytes": 1120,
+      "path": "docs/UPGRADE.md",
+      "sha256": "3e1e81c60776adfcf862ca0e6859df20c1233b1179a702528d7c783844bae079"
+    },
+    {
+      "bytes": 978,
+      "path": "docs/UPSTREAM.md",
+      "sha256": "453da33087a1b731c8fbbf13e64681019949febaab9fc3012cc67ee27cb76584"
+    },
+    {
+      "bytes": 1114,
+      "path": "docs/VALIDATION.md",
+      "sha256": "5555d03684de1f0f456dcfedc9749181b5c5d1ed73b948ade9c8082c77672ba8"
+    },
+    {
+      "bytes": 896,
+      "path": "examples/task.md",
+      "sha256": "98d036ff1f8af17fb5b8249fdc8b4f5c5e4b4e5628fcd727ac136ca576be2248"
+    },
+    {
+      "bytes": 239,
+      "path": "provenance/upstream.json",
+      "sha256": "daed1a5a5d6c021a8d394429df4c6e97237b2823772cbe1ee71a5ee06bc5a29f"
+    },
+    {
+      "bytes": 245,
+      "path": "release.json",
+      "sha256": "bf7fe796d8154d74f20fadf1c4fc212f2ae7182afb14574435c44a7a22b0e9a9"
+    },
+    {
+      "bytes": 11686,
+      "path": "scripts/public_package.py",
+      "sha256": "e275699ee360908b36b4a152f9f977d85b54a86e5be85a084e6fe397d4ea09f5"
+    },
+    {
+      "bytes": 2216,
+      "path": "skills/forge-code-review/SKILL.md",
+      "sha256": "81182ed389f9618fcea43860a81a6c3b80ba1624d1a5f204aafb97bd3d03aeb7"
+    },
+    {
+      "bytes": 536,
+      "path": "skills/forge-code-review/references/attribution.md",
+      "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
+    },
+    {
+      "bytes": 798,
+      "path": "skills/forge-code-review/references/cases.md",
+      "sha256": "4bccdba608c637cf2686c22ee396269be116c4fb513540b6a0d3c99b43b868f5"
+    },
+    {
+      "bytes": 2120,
+      "path": "skills/forge-diagnosing-bugs/SKILL.md",
+      "sha256": "eb05e3ba54329324899bc871007869c38b7dc25d9c3f38a3d891efa256f464a4"
+    },
+    {
+      "bytes": 536,
+      "path": "skills/forge-diagnosing-bugs/references/attribution.md",
+      "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
+    },
+    {
+      "bytes": 745,
+      "path": "skills/forge-diagnosing-bugs/references/cases.md",
+      "sha256": "ea25bdcda8b7b475c161d4352a9b5c495136090f7391a23dfdfe8e4119eb7b47"
+    },
+    {
+      "bytes": 1503,
+      "path": "skills/forge-domain-modeling/SKILL.md",
+      "sha256": "2a95c24657f2d70eddee19c8fa04401c6411b3326625ce59fec889c18a4c6001"
+    },
+    {
+      "bytes": 536,
+      "path": "skills/forge-domain-modeling/references/attribution.md",
+      "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
+    },
+    {
+      "bytes": 834,
+      "path": "skills/forge-domain-modeling/references/cases.md",
+      "sha256": "314101ab195a819e0c0ad7353ae682e03d0c172d7345a4b56876cb7fc9918d43"
+    },
+    {
+      "bytes": 4419,
+      "path": "skills/forge-work-dispatch/SKILL.md",
+      "sha256": "69b421e83d109a4649659c0871d54bc9fb9ee554ab881577b0bbcb50e79e61b3"
+    },
+    {
+      "bytes": 536,
+      "path": "skills/forge-work-dispatch/references/attribution.md",
+      "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
+    },
+    {
+      "bytes": 1447,
+      "path": "skills/forge-work-dispatch/references/runtime.md",
+      "sha256": "40f94b4037c60ab73cc6db638fe9b400e0e98c68a2911765b133c439c9afdbcb"
+    },
+    {
+      "bytes": 1264,
+      "path": "skills/forge-work-dispatch/references/work-orders.md",
+      "sha256": "8e7e56772052d3d75df278289842e8f1f36fbe2880157da96df7a0c591473bd8"
+    },
+    {
+      "bytes": 2157,
+      "path": "skills/forge-writing-for-agents/SKILL.md",
+      "sha256": "e0d49fabd9490f650a62788c0e0c7e43290c342cb4b85ca35f81b762cebe292a"
+    },
+    {
+      "bytes": 536,
+      "path": "skills/forge-writing-for-agents/references/attribution.md",
+      "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
+    },
+    {
+      "bytes": 1775,
+      "path": "skills/forge-writing-for-agents/references/cases.md",
+      "sha256": "3cdde0778d9fb3b9378ba3e21b66d01e6f5c7de06aad0a8bf35b741f72414024"
+    },
+    {
+      "bytes": 1905,
+      "path": "templates/project/AGENTS.md",
+      "sha256": "95abebaf76b7d2cc690f569822cf2097ec49a3bb85a9e23c23fceb96e32abf3e"
+    },
+    {
+      "bytes": 2773,
+      "path": "templates/project/docs/MANAGEMENT.md",
+      "sha256": "80d8ff7c456ab706868e1e07e6fd8127e1835047f7b74a9e12853ce55acf9e68"
+    },
+    {
+      "bytes": 916,
+      "path": "templates/project/docs/roles/controller.md",
+      "sha256": "d2ba29a831ab6ae72e85381908436905cb45d692030fb7b9f7fa29ec1c899af5"
+    },
+    {
+      "bytes": 723,
+      "path": "templates/project/docs/roles/executor.md",
+      "sha256": "55995c61060340ff977aec6b1585414f5df5ff1fde210ee575b8fdfe8f46bb4c"
+    },
+    {
+      "bytes": 1153,
+      "path": "templates/project/docs/roles/pm.md",
+      "sha256": "4bc6f4252f5a606b21e2bd48509efd421072e62bc77ce7f565006aaf68a7e52d"
+    },
+    {
+      "bytes": 633,
+      "path": "templates/project/docs/roles/reviewer.md",
+      "sha256": "950fca857d4d3c4bd940fde8ec27e9aca20b32c99b5d61fc49a8de393cd38c72"
+    },
+    {
+      "bytes": 407,
+      "path": "templates/project/management/CURRENT.md",
+      "sha256": "a4fc98d8b5c3c3c5ae68462267a6c8ea66a07bacbec03d99ed577ca4e0bff3fa"
+    },
+    {
+      "bytes": 220,
+      "path": "templates/project/management/LEDGER.md",
+      "sha256": "488549a50f1ce26924669bf57e1840d0e6efd3b8ddfc49788298500490f8faf9"
+    },
+    {
+      "bytes": 143,
+      "path": "templates/project/management/TODO.md",
+      "sha256": "ac660836cb957471bed49d9503064da19627600e7a7e05ed60032af235398827"
+    },
+    {
+      "bytes": 1068,
+      "path": "third_party/mattpocock/LICENSE.txt",
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    }
+  ],
+  "kind": "public-source",
+  "product_version": "0.2.1",
+  "public_revision": 1,
+  "schema_version": 1,
+  "tree_sha256": "0d34d1f6e14a03cb7d817278c59caba4d7b14f59484c924ae4a52df5cadaa745"
+}

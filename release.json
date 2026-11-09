@@ -1,0 +1,13 @@
+{
+  "core_skills": [
+    "code-review",
+    "diagnosing-bugs",
+    "domain-modeling",
+    "writing-for-agents",
+    "work-dispatch"
+  ],
+  "license": "AGPL-3.0-only",
+  "product_version": "0.2.1",
+  "public_revision": 1,
+  "schema_version": 1
+}

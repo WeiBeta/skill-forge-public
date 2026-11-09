@@ -1,0 +1,10 @@
+# Reference only. Check the installed Codex version before merging a reviewed delta.
+# Runtime acceptance: NotRun. This file does not change permissions.
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+sandbox_mode = "workspace-write"
+
+[agents]
+enabled = true
+# Example ceiling; start with the smallest useful concurrency.
+max_concurrent_threads_per_session = 4

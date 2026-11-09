@@ -1,0 +1,5 @@
+# Reference only. These broad patterns include preview variants of git clean.
+# Check with the target Codex execpolicy CLI; never run destructive commands as tests.
+prefix_rule(pattern = ["git", "reset", "--hard"], decision = "forbidden")
+prefix_rule(pattern = ["git", "clean"], decision = "forbidden")
+prefix_rule(pattern = ["gh", "repo", "delete"], decision = "forbidden")

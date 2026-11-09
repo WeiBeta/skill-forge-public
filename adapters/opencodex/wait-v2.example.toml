@@ -1,0 +1,10 @@
+# Historical reference: Codex core 0.167.0-alpha.3.2 + OpenCodex 2.98.0.
+# Not applied by this package. Validate against the target core before merging.
+# Model-level routing chooses V2 for supported models; global V2 remains disabled.
+[features.multi_agent_v2]
+enabled = false
+wait_agent_enabled = true
+min_wait_timeout_ms = 150000
+default_wait_timeout_ms = 750000
+max_wait_timeout_ms = 1500000
+non_code_mode_only = true
