@@ -24,7 +24,9 @@ MAX_ARCHIVE = MAX_TOTAL + 1024**2
 LICENSE = "AGPL-3.0-only"
 CORE_SKILLS = (
     "code-review", "diagnosing-bugs", "domain-modeling", "writing-for-agents", "work-dispatch",
+    "agent-recovery", "ledger-reconcile",
 )
+LEGACY_FIVE_CORE_VERSIONS = {"0.2.1", "0.3.0"}
 REQUIRED = {
     "README.md", "README.zh-CN.md", "assets/hero.png", "release.json", "LICENSE",
     "third_party/mattpocock/LICENSE.txt", "scripts/public_package.py",
@@ -164,24 +166,32 @@ def read_tree(path, *, ignore_git=False):
     return files
 
 
-def release_identity(files):
-    if not REQUIRED <= files.keys():
+def release_identity(files, *, allow_legacy=False):
+    if "release.json" not in files:
         raise ValueError("Required public source files are missing")
     data = json_object(files["release.json"], "public release.json")
+    core = CORE_SKILLS
+    if allow_legacy and data.get("product_version") in LEGACY_FIVE_CORE_VERSIONS:
+        core = CORE_SKILLS[:5]
+    required = (REQUIRED - {f"skills/forge-{name}/SKILL.md" for name in CORE_SKILLS}) | {
+        f"skills/forge-{name}/SKILL.md" for name in core
+    }
+    if not required <= files.keys():
+        raise ValueError("Required public source files are missing")
     if (
         set(data) != {"schema_version", "product_version", "public_revision", "license", "core_skills"}
         or type(data["schema_version"]) is not int or data["schema_version"] != 1
         or not isinstance(data["product_version"], str) or not VERSION.fullmatch(data["product_version"])
         or type(data["public_revision"]) is not int or not 1 <= data["public_revision"] <= 999_999
-        or data["license"] != LICENSE or data["core_skills"] != list(CORE_SKILLS)
+        or data["license"] != LICENSE or data["core_skills"] != list(core)
     ):
         raise ValueError("Invalid public release identity")
     return {key: data[key] for key in ("product_version", "public_revision")}
 
 
-def make_manifest(files):
+def make_manifest(files, *, allow_legacy=False):
     validate_names([*files, MANIFEST])
-    identity = release_identity(files)
+    identity = release_identity(files, allow_legacy=allow_legacy)
     items = [
         {"path": name, "bytes": len(data), "sha256": digest(data)}
         for name, data in sorted(files.items())
@@ -192,10 +202,12 @@ def make_manifest(files):
     }
 
 
-def verify_files(files):
+def verify_files(files, *, allow_legacy=False):
     if MANIFEST not in files:
         raise ValueError("Missing public source manifest")
-    expected = make_manifest({name: data for name, data in files.items() if name != MANIFEST})
+    expected = make_manifest(
+        {name: data for name, data in files.items() if name != MANIFEST}, allow_legacy=allow_legacy,
+    )
     if files[MANIFEST] != canonical(expected):
         raise ValueError("Public manifest does not match the exact file set and bytes")
     return expected
@@ -218,7 +230,7 @@ def pack(files):
     return stream.getvalue()
 
 
-def read_archive(data):
+def read_archive(data, *, allow_legacy=False):
     if len(data) > MAX_ARCHIVE:
         raise ValueError("Public archive exceeds size limit")
     try:
@@ -239,7 +251,7 @@ def read_archive(data):
             files = {info.filename: archive.read(info) for info in members}
     except (zipfile.BadZipFile, UnicodeError, NotImplementedError, RuntimeError, EOFError):
         raise ValueError("Malformed public archive or CRC mismatch") from None
-    manifest = verify_files(files)
+    manifest = verify_files(files, allow_legacy=allow_legacy)
     if data != pack(files):
         raise ValueError("Archive bytes are not the canonical public ZIP")
     return manifest

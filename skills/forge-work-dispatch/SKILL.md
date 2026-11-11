@@ -3,7 +3,7 @@ name: forge-work-dispatch
 description: "为多任务工程准备派工、续接与核收：按真实依赖冻结可隔离工作，回收实质结果并更新既有台账；普通单步问答不启用整套流程。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.0"
+  version: "0.3.2"
 ---
 
 # 工程派工与回收

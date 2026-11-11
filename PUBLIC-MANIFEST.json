@@ -21,14 +21,14 @@
       "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
     },
     {
-      "bytes": 5786,
+      "bytes": 5813,
       "path": "README.md",
-      "sha256": "f959314d02250e21e8923830e9c92c93d31e9b7eedf7b5fdf1587c78561474be"
+      "sha256": "41dad1cf95b60eb2195188d3ed16fa65dfb162401398a03355589d1c301ece81"
     },
     {
-      "bytes": 5283,
+      "bytes": 5313,
       "path": "README.zh-CN.md",
-      "sha256": "86e5fce8fbb6be877ff6134671993bd46fedc068d96986951d80004c438a3dd8"
+      "sha256": "c0c8abfd2b77f94de6454474d0f7565a40e39cb1cbfaf49d7cebfbdb91433da5"
     },
     {
       "bytes": 1289,
@@ -66,9 +66,9 @@
       "sha256": "84e73624de10fa8e394eeecfb237d7791b25905bc7cb994602b112f71e57e9c4"
     },
     {
-      "bytes": 1624,
+      "bytes": 1663,
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "8402d1d6853ce1f9f562a97b4bf73555da07abdaa93a0eef7be5d5b99c4b0120"
+      "sha256": "7071d55a8457c3280c26069fa126052736b95a8d8d1bb041146818da53e34640"
     },
     {
       "bytes": 1626,
@@ -126,19 +126,29 @@
       "sha256": "daed1a5a5d6c021a8d394429df4c6e97237b2823772cbe1ee71a5ee06bc5a29f"
     },
     {
-      "bytes": 245,
+      "bytes": 291,
       "path": "release.json",
-      "sha256": "c6c462e23dc4edad06f5441d4d5db92c3dc2be7228cdab29756c825a763f891c"
+      "sha256": "418b5af090c8c4b3713d328adab7515f91aee0f4004421656d04268f5dc4207b"
     },
     {
-      "bytes": 11686,
+      "bytes": 12350,
       "path": "scripts/public_package.py",
-      "sha256": "e275699ee360908b36b4a152f9f977d85b54a86e5be85a084e6fe397d4ea09f5"
+      "sha256": "40541020247c18ee89730c4679010e8513a934a0a1aa4c27c514c3ee4f6294c8"
+    },
+    {
+      "bytes": 3040,
+      "path": "skills/forge-agent-recovery/SKILL.md",
+      "sha256": "394f1c4b89962b9a3d9390c32ed48642d1167fdb8258cc15e6967b4d75114ddb"
+    },
+    {
+      "bytes": 508,
+      "path": "skills/forge-agent-recovery/references/attribution.md",
+      "sha256": "b6d3c13322f87fcde1f7f1c13e36c57fca3bda61b071b32a9c04d115a9dd8fea"
     },
     {
       "bytes": 2489,
       "path": "skills/forge-code-review/SKILL.md",
-      "sha256": "92883cc89099a722f65de79a8ddc18904c1aa248920de0164b086be8a508b47f"
+      "sha256": "5e517fc70a646695e5d01b17dd78059f629dbb7d3c63c0403ba18fcca5931296"
     },
     {
       "bytes": 536,
@@ -153,7 +163,7 @@
     {
       "bytes": 2363,
       "path": "skills/forge-diagnosing-bugs/SKILL.md",
-      "sha256": "2029efb59ca59c489179c97ca854967814b599aee47f59ad137f6d1102369992"
+      "sha256": "ebb9fd0910fd1a973e746d31b698e79678b0338f52e48c66ffed5de18e25b047"
     },
     {
       "bytes": 536,
@@ -168,7 +178,7 @@
     {
       "bytes": 1503,
       "path": "skills/forge-domain-modeling/SKILL.md",
-      "sha256": "2c6120df661cc51d49b5927ae386080b002ed1937e3223b46d96a5dc5c14196b"
+      "sha256": "d867f6792c876bad401bee44cb337252fc9f261f924a517eceb4430465f24546"
     },
     {
       "bytes": 536,
@@ -181,9 +191,19 @@
       "sha256": "314101ab195a819e0c0ad7353ae682e03d0c172d7345a4b56876cb7fc9918d43"
     },
     {
+      "bytes": 2933,
+      "path": "skills/forge-ledger-reconcile/SKILL.md",
+      "sha256": "fba35fc94adb56574fe3b4a211190cff92c474c5faa7afbe7a066a50298cd325"
+    },
+    {
+      "bytes": 420,
+      "path": "skills/forge-ledger-reconcile/references/attribution.md",
+      "sha256": "b6e5d7cfdf53cea5b7eaf717ad6af22079dbaaafa36b09941a607e2eb7ecd7fa"
+    },
+    {
       "bytes": 5760,
       "path": "skills/forge-work-dispatch/SKILL.md",
-      "sha256": "29e474554a8ed20f1062da5d56aaea4ed8c5dbe4fb47b2d8b2775b9de9243df6"
+      "sha256": "35a604faf0ef586e2bdc2728dbcc8039354e2832d0a1355d43d158c5c6276026"
     },
     {
       "bytes": 536,
@@ -203,7 +223,7 @@
     {
       "bytes": 2321,
       "path": "skills/forge-writing-for-agents/SKILL.md",
-      "sha256": "a83b60244ff063dfb6b8c3836b95d3bfc55f4aa69971a7dd9364e8ecf4a91f05"
+      "sha256": "cfe50e58df9f6a5a0ce17b0b62087dae3fb160edaa2baeae9e80e0fb0dfdb3c4"
     },
     {
       "bytes": 536,
@@ -216,9 +236,9 @@
       "sha256": "3cdde0778d9fb3b9378ba3e21b66d01e6f5c7de06aad0a8bf35b741f72414024"
     },
     {
-      "bytes": 1995,
+      "bytes": 2238,
       "path": "templates/project/AGENTS.md",
-      "sha256": "44720221bfb069bd06d9156585838a8705aefa0e2c5edca24fc76ee8d20252e8"
+      "sha256": "6526864a36d1b8f12fc4bb4084204482ae1f5a02eaa6fb2cf16dbcdeb67c5eb8"
     },
     {
       "bytes": 4647,
@@ -267,8 +287,8 @@
     }
   ],
   "kind": "public-source",
-  "product_version": "0.3.0",
-  "public_revision": 2,
+  "product_version": "0.3.2",
+  "public_revision": 1,
   "schema_version": 1,
-  "tree_sha256": "b9dccae9aabe1862c4ba7a631fd094cf777ac2dfca591630e4ac0458b031f0ec"
+  "tree_sha256": "a28594390a633fec3cb9d98bfe43ef7f7e4c3fa0b041c91fad13d2475530e0f8"
 }

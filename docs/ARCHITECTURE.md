@@ -5,7 +5,7 @@ Use three layers: a short project charter, role-specific guidance, and records t
 | Layer | Responsibility | Entry |
 | --- | --- | --- |
 | Governance | Project scope, authority, roles and one integration owner | [Project charter](../templates/project/AGENTS.md) |
-| Skills | Reusable procedures for instructions, review, diagnosis, modeling and dispatch | [Work dispatch](../skills/forge-work-dispatch/SKILL.md) |
+| Skills | Reusable procedures for instructions, review, diagnosis, modeling, dispatch, agent recovery and ledger reconciliation | [Work dispatch](../skills/forge-work-dispatch/SKILL.md) |
 | Adapters | Version-sensitive host capabilities and example configuration | [Native Codex](../adapters/codex-native/README.md), [optional OpenCodex](../adapters/opencodex/README.md) |
 | Evidence | Fixed inputs, candidate identity, results, handoff and recovery | [Management protocol](../templates/project/docs/MANAGEMENT.md), [recovery](DEPLOYMENT-RECOVERY.md) |
 

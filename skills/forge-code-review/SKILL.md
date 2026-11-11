@@ -3,7 +3,7 @@ name: forge-code-review
 description: "审查冻结代码、文档或证据时，从规格与质量证据两轴核实具体影响，辨别不成立的 finding，并按变更范围复用或补充证据。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.0"
+  version: "0.3.2"
   upstream_base: "49dd158d1076134a641b33efb035946536778336"
 ---
 

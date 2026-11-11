@@ -28,7 +28,7 @@
 | --- | --- |
 | 多人并行时相互踩文件 | 明确依赖、隔离写集和唯一集成责任人 |
 | 每轮都要重讲一遍背景 | 总纲＋指针＋角色细则，减少重复上下文 |
-| 同类工作每次做法不同 | 编写约束、代码审查、故障诊断、领域建模、派工回收五类技能 |
+| 同类工作每次做法不同 | 编写约束、代码审查、故障诊断、领域建模、派工回收、代理恢复、台账校对七类技能 |
 | “做完了”却不知道完成了什么 | 固定输入、验收条件、证据与实质回执 |
 | 更新后需要找回原状态 | before/candidate/after、漂移检查与有边界的恢复流程 |
 | 想采用自己的模型组合 | 原生 Codex 主路线，以及可选的 OpenCodex 参考路线 |
@@ -77,7 +77,7 @@ cd skill-forge-public
 | 路径 | 内容 |
 | --- | --- |
 | [`templates/project/`](templates/project/AGENTS.md) | 项目总纲、角色细则和空白管理模板 |
-| [`skills/`](skills/forge-work-dispatch/SKILL.md) | 五类工程技能与按需参考 |
+| [`skills/`](skills/forge-work-dispatch/SKILL.md) | 七类工程技能与按需参考 |
 | [`adapters/`](adapters/codex-native/README.md) | 原生 Codex 与可选 OpenCodex 路线 |
 | [`docs/`](docs/QUICKSTART.md) | 启动、协作、验证与恢复说明 |
 

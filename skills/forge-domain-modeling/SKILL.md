@@ -3,7 +3,7 @@ name: forge-domain-modeling
 description: "遇到工程术语、状态或业务边界歧义时，从现有权威合同和具体场景澄清稳定含义，避免凭相似名字推断权限、身份或验收。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.0"
+  version: "0.3.2"
   upstream_base: "49dd158d1076134a641b33efb035946536778336"
 ---
 
