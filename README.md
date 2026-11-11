@@ -68,6 +68,8 @@ Configuration examples are reference files. Cloning this repository does not cha
 
 **Third-party models:** [the OpenCodex reference](adapters/opencodex/README.md) shows how to think about an additional routing layer. Other routers and model combinations require their own validation.
 
+[Model routing and PM roles](docs/WORK-DISPATCH-MODELS.md) provides an optional task-based selection table and two economical PM examples. This explanatory note stays outside the skills and is read only when choosing routes.
+
 These are engineering templates and skills, not a background scheduler or a promise of unattended operation. Runtime behavior, host discovery, resource release, and performance need verification in your environment. We do not claim universal zero-polling cost or a measured speedup from static checks.
 
 ## Find your way around

@@ -21,14 +21,14 @@
       "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
     },
     {
-      "bytes": 5560,
+      "bytes": 5786,
       "path": "README.md",
-      "sha256": "d290e83354f5700baef884edafe1cf89a13821328e7cfe84073169b8bb75d7f2"
+      "sha256": "f959314d02250e21e8923830e9c92c93d31e9b7eedf7b5fdf1587c78561474be"
     },
     {
-      "bytes": 5079,
+      "bytes": 5283,
       "path": "README.zh-CN.md",
-      "sha256": "15cfa55f6cf0e289f787fdd5d6d05c3388b451ee654fbac8846139ebf5c3d08c"
+      "sha256": "86e5fce8fbb6be877ff6134671993bd46fedc068d96986951d80004c438a3dd8"
     },
     {
       "bytes": 1289,
@@ -76,9 +76,9 @@
       "sha256": "5b5538d2ff816151096dc52323588e808e44ec81d81fbc47c210f6d8fc93967f"
     },
     {
-      "bytes": 1721,
+      "bytes": 2553,
       "path": "docs/PACKAGES.md",
-      "sha256": "89d693c7ae2980b956288d3dcadd3d3b1efe2dd0dee01ce76095cdb0a0d4201f"
+      "sha256": "d2501cfa5e9403aa4edb6016711fe8751a4397a7e045b7e1baacb6b5031c1ac9"
     },
     {
       "bytes": 1154,
@@ -111,6 +111,11 @@
       "sha256": "5555d03684de1f0f456dcfedc9749181b5c5d1ed73b948ade9c8082c77672ba8"
     },
     {
+      "bytes": 4784,
+      "path": "docs/WORK-DISPATCH-MODELS.md",
+      "sha256": "a09978fc00ffbd370b528607bf899654cfb98cbfb8d27920d7824cd8dbb7caa0"
+    },
+    {
       "bytes": 896,
       "path": "examples/task.md",
       "sha256": "98d036ff1f8af17fb5b8249fdc8b4f5c5e4b4e5628fcd727ac136ca576be2248"
@@ -123,7 +128,7 @@
     {
       "bytes": 245,
       "path": "release.json",
-      "sha256": "c42251ede169dbeb7d96b3866e97d8f0947c3fa2577fd5b08bca4bd9e5bcd31b"
+      "sha256": "c6c462e23dc4edad06f5441d4d5db92c3dc2be7228cdab29756c825a763f891c"
     },
     {
       "bytes": 11686,
@@ -263,7 +268,7 @@
   ],
   "kind": "public-source",
   "product_version": "0.3.0",
-  "public_revision": 1,
+  "public_revision": 2,
   "schema_version": 1,
-  "tree_sha256": "fc833bdd810b4fdf89eb847dce87dcf1e993b2f787385894d69a8e4f78b9a315"
+  "tree_sha256": "b9dccae9aabe1862c4ba7a631fd094cf777ac2dfca591630e4ac0458b031f0ec"
 }

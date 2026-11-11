@@ -14,4 +14,8 @@ For an original Release ZIP, optionally pass `--zip-sha256` or `--tree-sha256` w
 
 The release identity is product version plus public revision. The bundle contains one public source tree, its public manifest, AGPL and upstream MIT text, and no customer payload. The standalone tool verifies bytes; it does not deploy files, change host settings, or certify skill behavior.
 
+For managed client deployments, include `work-dispatch` and its runtime, work-order and attribution references in the baseline, with pointers to that project's governance. Preserve valid local customizations. Record gaps for completion under existing authorization; do not mark the baseline installed until required files are present and their references resolve. Client membership is selected for each rollout. The optional [model-selection note](WORK-DISPATCH-MODELS.md) remains separate from skill instructions.
+
+纳管客户的技能基线包含派工技能、运行/工单/归属引用及项目治理入口；保留有效定制，缺项按既有授权补齐前保持未完成，必需文件齐备且引用可达后才记为标配安装完成。客户名单按每轮选择。模型选型说明独立存放，不进入 Skill。
+
 可在脱离维护仓库的目录中重建同字节 ZIP。核对可信发行渠道的摘要后再接受包身份；目录和归档通过静态核验并不证明宿主或业务验收。
