@@ -66,9 +66,9 @@
       "sha256": "84e73624de10fa8e394eeecfb237d7791b25905bc7cb994602b112f71e57e9c4"
     },
     {
-      "bytes": 1480,
+      "bytes": 1624,
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "8c0b6a2d4ae20ea149f550f1a33f3df767153b3f357ad5352d67d993f2461cd7"
+      "sha256": "8402d1d6853ce1f9f562a97b4bf73555da07abdaa93a0eef7be5d5b99c4b0120"
     },
     {
       "bytes": 1626,
@@ -96,9 +96,9 @@
       "sha256": "14f26e3c5cf688e5cb22e3e0706ba0674e721cddacc13c40f3e0894eb9756a02"
     },
     {
-      "bytes": 1120,
+      "bytes": 1214,
       "path": "docs/UPGRADE.md",
-      "sha256": "3e1e81c60776adfcf862ca0e6859df20c1233b1179a702528d7c783844bae079"
+      "sha256": "ab32e63742e6b68a2f6b9674a4079023811c275c2b8b902347dda555f0a77a60"
     },
     {
       "bytes": 978,
@@ -123,7 +123,7 @@
     {
       "bytes": 245,
       "path": "release.json",
-      "sha256": "bf7fe796d8154d74f20fadf1c4fc212f2ae7182afb14574435c44a7a22b0e9a9"
+      "sha256": "c42251ede169dbeb7d96b3866e97d8f0947c3fa2577fd5b08bca4bd9e5bcd31b"
     },
     {
       "bytes": 11686,
@@ -131,9 +131,9 @@
       "sha256": "e275699ee360908b36b4a152f9f977d85b54a86e5be85a084e6fe397d4ea09f5"
     },
     {
-      "bytes": 2216,
+      "bytes": 2489,
       "path": "skills/forge-code-review/SKILL.md",
-      "sha256": "81182ed389f9618fcea43860a81a6c3b80ba1624d1a5f204aafb97bd3d03aeb7"
+      "sha256": "92883cc89099a722f65de79a8ddc18904c1aa248920de0164b086be8a508b47f"
     },
     {
       "bytes": 536,
@@ -146,9 +146,9 @@
       "sha256": "4bccdba608c637cf2686c22ee396269be116c4fb513540b6a0d3c99b43b868f5"
     },
     {
-      "bytes": 2120,
+      "bytes": 2363,
       "path": "skills/forge-diagnosing-bugs/SKILL.md",
-      "sha256": "eb05e3ba54329324899bc871007869c38b7dc25d9c3f38a3d891efa256f464a4"
+      "sha256": "2029efb59ca59c489179c97ca854967814b599aee47f59ad137f6d1102369992"
     },
     {
       "bytes": 536,
@@ -163,7 +163,7 @@
     {
       "bytes": 1503,
       "path": "skills/forge-domain-modeling/SKILL.md",
-      "sha256": "2a95c24657f2d70eddee19c8fa04401c6411b3326625ce59fec889c18a4c6001"
+      "sha256": "2c6120df661cc51d49b5927ae386080b002ed1937e3223b46d96a5dc5c14196b"
     },
     {
       "bytes": 536,
@@ -176,9 +176,9 @@
       "sha256": "314101ab195a819e0c0ad7353ae682e03d0c172d7345a4b56876cb7fc9918d43"
     },
     {
-      "bytes": 4419,
+      "bytes": 5760,
       "path": "skills/forge-work-dispatch/SKILL.md",
-      "sha256": "69b421e83d109a4649659c0871d54bc9fb9ee554ab881577b0bbcb50e79e61b3"
+      "sha256": "29e474554a8ed20f1062da5d56aaea4ed8c5dbe4fb47b2d8b2775b9de9243df6"
     },
     {
       "bytes": 536,
@@ -186,19 +186,19 @@
       "sha256": "855bc6182131ea527239e4f8d57562b247843b62792b8c832b85cc2c7ef8bc74"
     },
     {
-      "bytes": 1447,
+      "bytes": 2240,
       "path": "skills/forge-work-dispatch/references/runtime.md",
-      "sha256": "40f94b4037c60ab73cc6db638fe9b400e0e98c68a2911765b133c439c9afdbcb"
+      "sha256": "a042822f1831f442b31651c77ff328fb825dafdc3966b70c6d2b21ecd2d9af87"
     },
     {
-      "bytes": 1264,
+      "bytes": 1410,
       "path": "skills/forge-work-dispatch/references/work-orders.md",
-      "sha256": "8e7e56772052d3d75df278289842e8f1f36fbe2880157da96df7a0c591473bd8"
+      "sha256": "8935160a270f1d758c898cd5c8ae4a2f3a4331122513ad0fb598941ea5ef0383"
     },
     {
-      "bytes": 2157,
+      "bytes": 2321,
       "path": "skills/forge-writing-for-agents/SKILL.md",
-      "sha256": "e0d49fabd9490f650a62788c0e0c7e43290c342cb4b85ca35f81b762cebe292a"
+      "sha256": "a83b60244ff063dfb6b8c3836b95d3bfc55f4aa69971a7dd9364e8ecf4a91f05"
     },
     {
       "bytes": 536,
@@ -211,24 +211,24 @@
       "sha256": "3cdde0778d9fb3b9378ba3e21b66d01e6f5c7de06aad0a8bf35b741f72414024"
     },
     {
-      "bytes": 1905,
+      "bytes": 1995,
       "path": "templates/project/AGENTS.md",
-      "sha256": "95abebaf76b7d2cc690f569822cf2097ec49a3bb85a9e23c23fceb96e32abf3e"
+      "sha256": "44720221bfb069bd06d9156585838a8705aefa0e2c5edca24fc76ee8d20252e8"
     },
     {
-      "bytes": 2773,
+      "bytes": 4647,
       "path": "templates/project/docs/MANAGEMENT.md",
-      "sha256": "80d8ff7c456ab706868e1e07e6fd8127e1835047f7b74a9e12853ce55acf9e68"
+      "sha256": "5fe6348e21d0a0351d161fb18c2ee229aa0123f6fae7831c9421be1e6c442847"
     },
     {
-      "bytes": 916,
+      "bytes": 1024,
       "path": "templates/project/docs/roles/controller.md",
-      "sha256": "d2ba29a831ab6ae72e85381908436905cb45d692030fb7b9f7fa29ec1c899af5"
+      "sha256": "d46673c8464f4abed80bf7d86b70927d3e223f3e9a2179f19f16c41be5f9b889"
     },
     {
-      "bytes": 723,
+      "bytes": 906,
       "path": "templates/project/docs/roles/executor.md",
-      "sha256": "55995c61060340ff977aec6b1585414f5df5ff1fde210ee575b8fdfe8f46bb4c"
+      "sha256": "430ef2c9bdc811ca44a2a8b2eded6244b590c72c0db19c7bc54df38cefc18e49"
     },
     {
       "bytes": 1153,
@@ -236,9 +236,9 @@
       "sha256": "4bc6f4252f5a606b21e2bd48509efd421072e62bc77ce7f565006aaf68a7e52d"
     },
     {
-      "bytes": 633,
+      "bytes": 771,
       "path": "templates/project/docs/roles/reviewer.md",
-      "sha256": "950fca857d4d3c4bd940fde8ec27e9aca20b32c99b5d61fc49a8de393cd38c72"
+      "sha256": "9d78fc7faab2b5e3fc02b08f1017a5cf8aca5132779d1c034ef1cc2af02afba4"
     },
     {
       "bytes": 407,
@@ -246,9 +246,9 @@
       "sha256": "a4fc98d8b5c3c3c5ae68462267a6c8ea66a07bacbec03d99ed577ca4e0bff3fa"
     },
     {
-      "bytes": 220,
+      "bytes": 306,
       "path": "templates/project/management/LEDGER.md",
-      "sha256": "488549a50f1ce26924669bf57e1840d0e6efd3b8ddfc49788298500490f8faf9"
+      "sha256": "e5fe7eab7a0dd40d8523f6ded3adb9dd09956aece88464761383a7aa576b2406"
     },
     {
       "bytes": 143,
@@ -262,8 +262,8 @@
     }
   ],
   "kind": "public-source",
-  "product_version": "0.2.1",
+  "product_version": "0.3.0",
   "public_revision": 1,
   "schema_version": 1,
-  "tree_sha256": "0d34d1f6e14a03cb7d817278c59caba4d7b14f59484c924ae4a52df5cadaa745"
+  "tree_sha256": "fc833bdd810b4fdf89eb847dce87dcf1e993b2f787385894d69a8e4f78b9a315"
 }
