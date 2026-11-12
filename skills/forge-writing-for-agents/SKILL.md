@@ -3,7 +3,7 @@ name: forge-writing-for-agents
 description: "编写代理规则、派工材料、恢复入口或技能文档时，明确读者、触发、权威指针、消费者合同和完成条件，压缩无效流程。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.2"
+  version: "0.3.3"
   upstream_base: "49dd158d1076134a641b33efb035946536778336"
 ---
 

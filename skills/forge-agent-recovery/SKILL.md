@@ -3,7 +3,7 @@ name: forge-agent-recovery
 description: "处理已观察到的原生代理模型服务层瞬时429/502：PM按同工单累计最多3次向原实例有界续接，耗尽后回执主控；保持原预算和权限，业务错误及普通工具失败不走此流程。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.2"
+  version: "0.3.3"
 ---
 
 # 原实例有界续接

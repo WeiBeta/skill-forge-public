@@ -6,10 +6,11 @@
     "writing-for-agents",
     "work-dispatch",
     "agent-recovery",
-    "ledger-reconcile"
+    "ledger-reconcile",
+    "feedback"
   ],
   "license": "AGPL-3.0-only",
-  "product_version": "0.3.2",
+  "product_version": "0.3.3",
   "public_revision": 1,
   "schema_version": 1
 }

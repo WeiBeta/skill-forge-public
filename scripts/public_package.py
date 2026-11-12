@@ -24,9 +24,10 @@ MAX_ARCHIVE = MAX_TOTAL + 1024**2
 LICENSE = "AGPL-3.0-only"
 CORE_SKILLS = (
     "code-review", "diagnosing-bugs", "domain-modeling", "writing-for-agents", "work-dispatch",
-    "agent-recovery", "ledger-reconcile",
+    "agent-recovery", "ledger-reconcile", "feedback",
 )
 LEGACY_FIVE_CORE_VERSIONS = {"0.2.1", "0.3.0"}
+LEGACY_SEVEN_CORE_VERSIONS = {"0.3.1", "0.3.2"}
 REQUIRED = {
     "README.md", "README.zh-CN.md", "assets/hero.png", "release.json", "LICENSE",
     "third_party/mattpocock/LICENSE.txt", "scripts/public_package.py",
@@ -173,6 +174,8 @@ def release_identity(files, *, allow_legacy=False):
     core = CORE_SKILLS
     if allow_legacy and data.get("product_version") in LEGACY_FIVE_CORE_VERSIONS:
         core = CORE_SKILLS[:5]
+    elif allow_legacy and data.get("product_version") in LEGACY_SEVEN_CORE_VERSIONS:
+        core = CORE_SKILLS[:7]
     required = (REQUIRED - {f"skills/forge-{name}/SKILL.md" for name in CORE_SKILLS}) | {
         f"skills/forge-{name}/SKILL.md" for name in core
     }

@@ -3,7 +3,7 @@ name: forge-diagnosing-bugs
 description: "业务、测试、包装器、环境或核验器结论矛盾时，用原始证据定位故障层、候选来源与最小可证伪检查，避免重复副作用。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.2"
+  version: "0.3.3"
   upstream_base: "49dd158d1076134a641b33efb035946536778336"
 ---
 

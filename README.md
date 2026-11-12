@@ -28,7 +28,7 @@ Start with one agent and a small task. Add a PM and specialist roles as the proj
 | --- | --- |
 | More useful parallel work | Explicit dependencies, isolated write scopes, and clear integration ownership |
 | Less repeated context | A short project charter with pointers to the rules each role needs |
-| Consistent everyday work | Seven reusable skills for writing instructions, review, diagnosis, domain modeling, dispatch, bounded agent recovery, and ledger reconciliation |
+| Consistent everyday work | Eight reusable skills for writing instructions, review, diagnosis, domain modeling, dispatch, bounded agent recovery, ledger reconciliation, and batched project feedback |
 | Clear handoffs | Fixed inputs, acceptance criteria, evidence, and honest `Unknown` / `NotRun` states |
 | Changes you can recover from | Before/candidate/after records, drift checks, and scoped recovery procedures |
 | A workflow that fits your tools | A Codex-native route and an optional, version-scoped OpenCodex reference |
@@ -77,7 +77,7 @@ These are engineering templates and skills, not a background scheduler or a prom
 | Path | Purpose |
 | --- | --- |
 | [`templates/project/`](templates/project/AGENTS.md) | A project charter, role guides, and empty management templates |
-| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Seven core engineering skills and focused references |
+| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Eight core engineering skills and focused references |
 | [`adapters/`](adapters/codex-native/README.md) | Codex-native and optional OpenCodex guidance |
 | [`docs/`](docs/QUICKSTART.md) | Setup, collaboration, validation, and recovery guidance |
 
