@@ -7,10 +7,11 @@
     "work-dispatch",
     "agent-recovery",
     "ledger-reconcile",
-    "feedback"
+    "feedback",
+    "pm-management"
   ],
   "license": "AGPL-3.0-only",
-  "product_version": "0.3.3",
+  "product_version": "0.3.5",
   "public_revision": 1,
   "schema_version": 1
 }

@@ -24,14 +24,13 @@ MAX_ARCHIVE = MAX_TOTAL + 1024**2
 LICENSE = "AGPL-3.0-only"
 CORE_SKILLS = (
     "code-review", "diagnosing-bugs", "domain-modeling", "writing-for-agents", "work-dispatch",
-    "agent-recovery", "ledger-reconcile", "feedback",
+    "agent-recovery", "ledger-reconcile", "feedback", "pm-management",
 )
-LEGACY_FIVE_CORE_VERSIONS = {"0.2.1", "0.3.0"}
-LEGACY_SEVEN_CORE_VERSIONS = {"0.3.1", "0.3.2"}
+LEGACY_CORE_COUNTS = {"0.2.1": 5, "0.3.0": 5, "0.3.1": 7, "0.3.2": 7, "0.3.3": 8}
 REQUIRED = {
     "README.md", "README.zh-CN.md", "assets/hero.png", "release.json", "LICENSE",
     "third_party/mattpocock/LICENSE.txt", "scripts/public_package.py",
-} | {f"skills/forge-{name}/SKILL.md" for name in CORE_SKILLS}
+}
 VERSION = re.compile(r"(?:0|[1-9][0-9]{0,8})(?:\.(?:0|[1-9][0-9]{0,8})){2}")
 SHA256 = re.compile(r"[0-9a-f]{64}")
 DEVICE = re.compile(r"(?:con|prn|aux|nul|com[0-9]|lpt[0-9]|conin\$|conout\$)(?:\..*)?")
@@ -171,20 +170,19 @@ def release_identity(files, *, allow_legacy=False):
     if "release.json" not in files:
         raise ValueError("Required public source files are missing")
     data = json_object(files["release.json"], "public release.json")
-    core = CORE_SKILLS
-    if allow_legacy and data.get("product_version") in LEGACY_FIVE_CORE_VERSIONS:
-        core = CORE_SKILLS[:5]
-    elif allow_legacy and data.get("product_version") in LEGACY_SEVEN_CORE_VERSIONS:
-        core = CORE_SKILLS[:7]
-    required = (REQUIRED - {f"skills/forge-{name}/SKILL.md" for name in CORE_SKILLS}) | {
-        f"skills/forge-{name}/SKILL.md" for name in core
-    }
+    version = data.get("product_version")
+    if not isinstance(version, str) or not VERSION.fullmatch(version):
+        raise ValueError("Invalid public release identity")
+    legacy_count = LEGACY_CORE_COUNTS.get(version)
+    if legacy_count is not None and not allow_legacy:
+        raise ValueError("Historical public release needs legacy comparison mode")
+    core = CORE_SKILLS if legacy_count is None else CORE_SKILLS[:legacy_count]
+    required = REQUIRED | {f"skills/forge-{name}/SKILL.md" for name in core}
     if not required <= files.keys():
         raise ValueError("Required public source files are missing")
     if (
         set(data) != {"schema_version", "product_version", "public_revision", "license", "core_skills"}
         or type(data["schema_version"]) is not int or data["schema_version"] != 1
-        or not isinstance(data["product_version"], str) or not VERSION.fullmatch(data["product_version"])
         or type(data["public_revision"]) is not int or not 1 <= data["public_revision"] <= 999_999
         or data["license"] != LICENSE or data["core_skills"] != list(core)
     ):

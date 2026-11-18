@@ -1,34 +1,31 @@
-# Model routing and PM roles / 派工模型与双 PM
+# Task routing and three PM roles / 派工与三类 PM
 
-Read this note when choosing or revising a project's routes. It stays outside skills and their references; agents do not need it for every assignment. The model labels below describe a reference setup. Resolve available model IDs and effort levels in your own host, and keep your project's approved routes authoritative. A native-only setup uses the GPT route; third-party routing is optional.
+Choose an executor by the work, then bind the actual model or execution mode available in the project. Keep the route table outside the skills. Trim optional channels at installation and apply route changes to new work or an explicitly resumed order.
 
-本文供主控选型或修订路由时按需阅读，放在 Skill 及其 references 之外，不随每单加载。以下模型名称属于参考组合，实际标识和档位以目标宿主可用项为准；项目已确认路由优先。纯原生环境只采用 GPT 路线，第三方适配可选。
+按任务选择执行者，在项目内绑定实际可用的模型、模式和参数。路由表独立于技能。初装只启用所需通道，新工单及明确续接采用新路由。
 
-## Executors / 执行者
-
-| Work / 工作特性 | Example model and effort / 参考选档 | Boundary / 适用边界 |
+| Work / 工作 | Example route / 选型示例 | Evidence / 核验 |
 | --- | --- | --- |
-| Small, fully specified features and mechanical checks / 低难度、规格明确的小功能及机械核验 | DS 4.1 Flash / `max` | Fixed UI bindings, field mapping, local adapters and contract tests; return unspecified cross-system transactions, save compatibility or major performance decisions to the controller / 既定 UI 绑定、字段映射、局部适配及明确契约测试；未约定的跨系统事务、存档兼容或重大性能取舍交回主控 |
-| Bounded implementation, test design and independent review / 边界明确的中档实现、测试设计及独立审查 | Sol 6.1 / `max` | Correctness, maintainability, state machines and resource lifecycles / 正确性、可维护性、状态机和资源生命周期 |
-| Complex judgment, implementation and repairs / 复杂判断、中高难度实现与修复 | Sol 6.1 / `max` | Judge fit from the actual task and delivery / 按本单判断量及交付结果选用 |
-| Coupled contracts, major correctness risk and difficult cross-system work / 多系统合同耦合、重大正确性风险与难拆解攻坚 | Astra 6 / `xhigh` | May be selected directly when the risk warrants it / 风险明确时可直接选用，无需先让 Sol 失败 |
-| Proven mechanical procedures / 已验证的机械流程 | Script first; Terra 6.1 / `low` if an agent is needed / 优先脚本，确需代理时用 Terra | Fixed entry points, collection and closeout; return open-ended diagnosis or unresolved cross-domain design to the controller / 固定入口、采集与收口；开放诊断或未定跨域设计交回主控 |
+| Repeatable checks / 固定核验 | Script, or Terra 6.1 low / 脚本，必要时用轻量代理 | Fixed input and output / 比对输入与输出 |
+| Small bounded feature / 规格明确的小功能 | DS 4.1 Flash max | Contract tests / 契约测试 |
+| Implementation and repair / 常规实现与修复 | Sol 6.2 max | Independent reviewer with source and tests / 由实现外审查者核源码与测试 |
+| Coupled backend systems / 复杂后端 | Astra 6.2 xhigh | One independent senior reviewer / 一位高难度独审 |
+| Evidence-based review / 有依据的审查 | A coding specialist, or a senior orchestration mode for harder work / 编码专长模型，高难工作可选编排器 | Cite location, trigger and impact / 说明位置、触发条件和影响 |
+| Visual UI and interaction / 前端视觉与交互 | Visual specialist, with a senior mode for complex work / 视觉专长模型，复杂任务可用高档模式 | Render the UI and verify state and data contracts / 查渲染、状态及数据合同 |
+| Literature and dialogue / 文学与对白 | A single literary model / 单模型执笔 | Check the brief, voice and facts / 按设定、声音与事实核验 |
 
-The controller owns escalation. Rule out tool, permission, environment and scope problems before attributing a failure to model capability. A real semantic bottleneck or repeated rework can justify Astra/xhigh; higher Astra efforts require explicit project-owner approval. PMs do not change providers or increase effort on their own. Independent review uses someone who did not implement the change.
+If the project owner enables rush mode, keep only basic tasks suited to DS on DS 4.1 Flash max. Route all other model execution and formal review to Astra 6.2 max in this configuration. Scripts and PMs keep their usual settings. Choose one reviewer outside the implementation team. A cluster that produced the implementation cannot provide its independent review. A manual handoff for exceptional design or review uses the same evidence and independence rules.
 
-主控决定升档，先排除工具、权限、环境和范围问题。存在实质语义瓶颈或同类返工时可评估升至 Astra/xhigh，更高 Astra 档位须经项目作者明确批准；PM 不自行换供应商或升档。独立审查由未参与实现者承担。
+项目作者开启赶工后，适配 DS 的基础任务继续用 DS 4.1 Flash max，示例中其余模型执行与正式审查统一用 Astra 6.2 max。脚本和 PM 沿用原配置。每单正式审查由一位实现外审查者负责。已参与实现的集群只能自检。低频高难设计或审查可人工交接，回包按原合同验收。
 
-## Coordinating PMs / 协调 PM
+## Reception / 接收
 
-| Route / 路线 | PM model and effort / PM 选档 |
-| --- | --- |
-| GPT family / GPT 家族 | Terra 6.1 / `low` |
-| Optional third-party family / 可选第三方模型 | DS 4.1 Flash / `high` |
+| PM type / 通道 | Example PM / 协调示例 | How it receives work results / 接收方式 |
+| --- | --- | --- |
+| Native GPT subagents | Terra 6.1 low | Direct parent receives supported events or waits in an active turn / 直接父会话在有效回合内接事件或等待 |
+| Third-party subagents | DS 4.1 Flash high | Without reliable events, use bounded, low-frequency waits for known children / 无可靠事件时对已知子任务低频有界接收 |
+| Agent Bridge | DS 4.1 Flash high | Pull known tasks for one bounded window per call. Process pause or new work before the next window / 每次拉取一个有界窗口，先处理暂停或插单再续收 |
 
-PMs repeatedly dispatch, wait and collect results, so this example balances cost, required judgment and model-family compatibility. Split the two PMs by family or runtime route; either can coordinate implementation or independent review. The split does not itself establish independence or runtime compatibility; see the [runtime contract](RUNTIME-CONTRACT.md).
+The controller receives substantive PM reports. Keep separate deadlines and resource ownership per task. Bind a mode with automatic effort by its host contract, omitting the effort field when required. Receipt of an output establishes delivery. Record internal model identity, cost and suitability only to the extent evidenced.
 
-PM 反复经历派工、等待和回收，因此这套选型兼顾经济性、所需智能与模型家族兼容性。双 PM 按家族或运行通道分工，两者都可派实现或独立审查；角色划分本身不证明审查独立性或通道兼容性，见[运行约定](RUNTIME-CONTRACT.md)。
-
-PMs dispatch frozen work and collect events, checking only essential completeness. Controllers retain engineering decisions and acceptance; open-ended diagnosis and business review belong to appropriate specialists. Each child task explicitly selects its own model and effort. Use completion events rather than polling to keep a coordinator alive. These choices are a starting point, not measured cost or performance results.
-
-PM 只负责冻结派工、事件回收和最低完整性检查；工程裁决与验收归主控，开放诊断及业务审查交相应专业执行者。子任务显式选择自己的模型与档位，不继承 PM 设置。采用完成事件回收，不轮询保活；本表不构成本轮费用或性能实测。
+主控只收 PM 的实质回执。每单分别绑定截止和资源归属。自动强度模式按宿主合同省略相应字段。内部模型身份、成本、任务适用性分别以可核证据记载。见 [PM 接收合同 / Reception contract](../skills/forge-pm-management/references/reception.md)。

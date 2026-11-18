@@ -28,7 +28,7 @@ Start with one agent and a small task. Add a PM and specialist roles as the proj
 | --- | --- |
 | More useful parallel work | Explicit dependencies, isolated write scopes, and clear integration ownership |
 | Less repeated context | A short project charter with pointers to the rules each role needs |
-| Consistent everyday work | Eight reusable skills for writing instructions, review, diagnosis, domain modeling, dispatch, bounded agent recovery, ledger reconciliation, and batched project feedback |
+| Consistent everyday work | Nine reusable skills for writing instructions, review, diagnosis, domain modeling, PM initialization, dispatch, bounded agent recovery, ledger reconciliation, and batched project feedback |
 | Clear handoffs | Fixed inputs, acceptance criteria, evidence, and honest `Unknown` / `NotRun` states |
 | Changes you can recover from | Before/candidate/after records, drift checks, and scoped recovery procedures |
 | A workflow that fits your tools | A Codex-native route and an optional, version-scoped OpenCodex reference |
@@ -46,7 +46,7 @@ flowchart LR
     H --> C
 ```
 
-The controller owns scope and acceptance. The PM coordinates bounded work. Specialists deliver inside their assigned paths. Independent review comes from someone who did not implement the change. Smaller projects can use fewer roles.
+The controller owns scope and acceptance. Use [PM management](skills/forge-pm-management/SKILL.md) to bind the actual receiving channel, then [work dispatch](skills/forge-work-dispatch/SKILL.md) to send work and collect results. Specialists deliver inside their assigned paths. Independent review comes from someone who did not implement the change. Smaller projects can use fewer roles.
 
 ## Start with one complete task
 
@@ -68,7 +68,7 @@ Configuration examples are reference files. Cloning this repository does not cha
 
 **Third-party models:** [the OpenCodex reference](adapters/opencodex/README.md) shows how to think about an additional routing layer. Other routers and model combinations require their own validation.
 
-[Model routing and PM roles](docs/WORK-DISPATCH-MODELS.md) provides an optional task-based selection table and two economical PM examples. This explanatory note stays outside the skills and is read only when choosing routes.
+[Model routing and PM roles](docs/WORK-DISPATCH-MODELS.md) provides an optional task-based selection table and reception contracts for three PM types. This explanatory note stays outside the skills and is read only when choosing routes.
 
 These are engineering templates and skills, not a background scheduler or a promise of unattended operation. Runtime behavior, host discovery, resource release, and performance need verification in your environment. We do not claim universal zero-polling cost or a measured speedup from static checks.
 
@@ -77,7 +77,7 @@ These are engineering templates and skills, not a background scheduler or a prom
 | Path | Purpose |
 | --- | --- |
 | [`templates/project/`](templates/project/AGENTS.md) | A project charter, role guides, and empty management templates |
-| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Eight core engineering skills and focused references |
+| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Nine core engineering skills and focused references |
 | [`adapters/`](adapters/codex-native/README.md) | Codex-native and optional OpenCodex guidance |
 | [`docs/`](docs/QUICKSTART.md) | Setup, collaboration, validation, and recovery guidance |
 

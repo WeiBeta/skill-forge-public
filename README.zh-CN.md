@@ -28,7 +28,7 @@
 | --- | --- |
 | 多人并行时相互踩文件 | 明确依赖、隔离写集和唯一集成责任人 |
 | 每轮都要重讲一遍背景 | 总纲＋指针＋角色细则，减少重复上下文 |
-| 同类工作每次做法不同 | 编写约束、代码审查、故障诊断、领域建模、派工回收、代理恢复、台账校对、经验集中交付八类技能 |
+| 同类工作每次做法不同 | 编写约束、代码审查、故障诊断、领域建模、PM 初始化、派工回收、代理恢复、台账校对、经验集中交付九项技能 |
 | “做完了”却不知道完成了什么 | 固定输入、验收条件、证据与实质回执 |
 | 更新后需要找回原状态 | before/candidate/after、漂移检查与有边界的恢复流程 |
 | 想采用自己的模型组合 | 原生 Codex 主路线，以及可选的 OpenCodex 参考路线 |
@@ -46,7 +46,7 @@ flowchart LR
     H --> C
 ```
 
-主控负责范围、取舍和验收；PM负责协调；执行者在工单边界内交付；独立审查由未参与实现的人完成。角色按需启用，小项目不必照搬完整组织架构。
+主控负责范围、取舍和验收；用 [PM 管理](skills/forge-pm-management/SKILL.md)初始化实际接收通道，再用[派工与回收](skills/forge-work-dispatch/SKILL.md)协调；执行者在工单边界内交付；独立审查由未参与实现的人完成。角色按需启用，小项目不必照搬完整组织架构。
 
 ## 从一个完整闭环开始
 
@@ -68,7 +68,7 @@ cd skill-forge-public
 
 **第三方模型：** [OpenCodex 参考方案](adapters/opencodex/README.md)提供额外路由层的配置与验收思路。其他路由器、代理或模型组合需要单独验证，不能直接继承经验结论。
 
-[派工模型与双 PM 选型](docs/WORK-DISPATCH-MODELS.md)提供按工作特性选档的参考表，以及兼顾经济性的双 PM 示例。这份说明独立于 Skill，只在选型时按需阅读。
+[派工模型与三类 PM](docs/WORK-DISPATCH-MODELS.md)提供按工作特性选档的参考表，以及三类 PM 的协调模型与接收方式。这份说明独立于 Skill，只在选型时按需阅读。
 
 本项目提供工程范本与技能，不是后台调度器，也不保证无人值守运行。宿主发现、运行行为、资源释放和性能需要在你的环境实测；静态检查不等于已证明零空转、加速比或业务收益。
 
@@ -77,7 +77,7 @@ cd skill-forge-public
 | 路径 | 内容 |
 | --- | --- |
 | [`templates/project/`](templates/project/AGENTS.md) | 项目总纲、角色细则和空白管理模板 |
-| [`skills/`](skills/forge-work-dispatch/SKILL.md) | 八类工程技能与按需参考 |
+| [`skills/`](skills/forge-work-dispatch/SKILL.md) | 九项工程技能与按需参考 |
 | [`adapters/`](adapters/codex-native/README.md) | 原生 Codex 与可选 OpenCodex 路线 |
 | [`docs/`](docs/QUICKSTART.md) | 启动、协作、验证与恢复说明 |
 

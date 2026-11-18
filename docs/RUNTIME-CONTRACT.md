@@ -11,13 +11,11 @@ Discover capabilities from the actual installed tool surface. A configured featu
 | Closure | Execution terminal state, close operation and resource release |
 | Recovery | Authorization, observed side effects, remaining budget and verified restoration |
 
-Use the event or handoff mechanism the target supports. Missing events may require user continuation; polling, empty acknowledgements and speculative wake-ups do not establish a reliable event contract. Do not treat a wrapper timeout as proof that a business action did not occur. An unreported underlying model or resource state stays `Unknown`.
+Use the event or handoff mechanism the target supports. Missing events may require user continuation; list polling, empty acknowledgements and speculative wake-ups do not establish a reliable event contract. Do not treat a wrapper timeout as proof that a business action did not occur. An unreported underlying model or resource state stays `Unknown`.
 
 V1 and V2 are names used by some host versions; do not assume equivalent parameters or lifecycle. See the [native](../adapters/codex-native/README.md) and [optional](../adapters/opencodex/README.md) route boundaries and the [validation guide](VALIDATION.md).
 
 
-## 等待采用入口
+## PM 接收入口
 
-主控只等独立PM时按已验证消息机制结束；直接父会话（含获准直派的主控）仍须回收子任务时保持接收回合，用实际事件/直接等待。没有适用事件时，只沿项目明确授权的有界等待与必要精确确认；无授权则交接人工续接。所有等待路径都在适用预算耗尽或schema与上层限制无合法交集时保存非终态、已用预算和恢复入口，同时停止追加等待/确认，不自行续额、重派或取消业务。这里的适配不是列表轮询、空ACK或定时保活许可，也不证明已结束父回合会被自动唤醒。
-
-首次采用或出现误用时查[三条接收路径](../skills/forge-work-dispatch/references/runtime.md#三条接收路径)，之后复用已有能力证据。
+创建、复用或轮换时使用 [PM 管理](../skills/forge-pm-management/SKILL.md)，按实际工具选择接收通道并固定[接收合同](../skills/forge-pm-management/references/reception.md)。主控接独立 PM 的实质回执，PM 以实际工具收具体任务；有界等待、终态采集和交接沿该合同。已就绪后用[派工与回收](../skills/forge-work-dispatch/SKILL.md)逐单执行。
