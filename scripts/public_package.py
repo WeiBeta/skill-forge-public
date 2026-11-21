@@ -14,6 +14,7 @@ import stat
 import sys
 import unicodedata
 import zipfile
+import zlib
 
 MANIFEST = "PUBLIC-MANIFEST.json"
 STAMP = (1980, 1, 1, 0, 0, 0)
@@ -214,7 +215,14 @@ def verify_files(files, *, allow_legacy=False):
     return expected
 
 
-def pack(files):
+def member_info(name, stamp):
+    info = zipfile.ZipInfo(name, date_time=stamp)
+    info.create_system = 3
+    info.external_attr = (stat.S_IFREG | 0o644) << 16
+    return info
+
+
+def pack(files, *, compression=zipfile.ZIP_DEFLATED):
     validate_names(files)
     if (
         len(files) > MAX_MEMBERS or sum(map(len, files.values())) > MAX_TOTAL
@@ -222,13 +230,64 @@ def pack(files):
     ):
         raise ValueError("Public source exceeds size limits")
     stream = io.BytesIO()
-    with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as archive:
+    with zipfile.ZipFile(stream, "w") as archive:
         for name, data in sorted(files.items()):
-            info = zipfile.ZipInfo(name, date_time=STAMP)
-            info.create_system = 3
-            info.external_attr = (stat.S_IFREG | 0o644) << 16
-            archive.writestr(info, data)
+            archive.writestr(member_info(name, STAMP), data, compress_type=compression, compresslevel=9)
     return stream.getvalue()
+
+
+def read_canonical_zip(data, archive, *, stamp):
+    """Check the writer's ZIP framing and decode the received streams exactly once."""
+    members = archive.infolist()
+    names = [info.orig_filename for info in members]
+    if names != sorted(set(names)) or any(info.filename != info.orig_filename or info.is_dir() for info in members):
+        raise ValueError("ZIP members must be unique files in sorted order")
+    methods = {info.compress_type for info in members}
+    if methods not in ({zipfile.ZIP_DEFLATED}, {zipfile.ZIP_STORED}):
+        raise ValueError("Unexpected archive compression")
+    method, = methods
+    received = memoryview(data)
+    canonical = io.BytesIO()
+    files = {}
+    with zipfile.ZipFile(canonical, "w") as expected:
+        for member in members:
+            info = member_info(member.filename, stamp)
+            info.header_offset = canonical.tell()
+            info.compress_type = method
+            info.compress_size = member.compress_size
+            info.file_size = member.file_size
+            info.CRC = member.CRC
+            # Use the same ZIP64 selection as the seekable zipfile writer.
+            header = info.FileHeader(zip64=info.file_size * 1.05 > zipfile.ZIP64_LIMIT)
+            start = info.header_offset + len(header)
+            end = start + info.compress_size
+            if (
+                info.header_offset != member.header_offset or end > archive.start_dir
+                or received[info.header_offset:start] != header
+            ):
+                raise ValueError("Archive bytes are not the canonical ZIP layout")
+            compressed = received[start:end]
+            if method == zipfile.ZIP_DEFLATED:
+                decoder = zlib.decompressobj(-zlib.MAX_WBITS)
+                try:
+                    payload = decoder.decompress(compressed, info.file_size + 1)
+                except (zlib.error, OverflowError):
+                    raise ValueError("Malformed ZIP member or CRC mismatch") from None
+                if not decoder.eof or decoder.unused_data or decoder.unconsumed_tail:
+                    raise ValueError("Malformed ZIP member or CRC mismatch")
+            else:
+                payload = bytes(compressed)
+            if len(payload) != info.file_size or zlib.crc32(payload) != info.CRC:
+                raise ValueError("Malformed ZIP member or CRC mismatch")
+            files[info.filename] = payload
+            canonical.write(header)
+            canonical.write(compressed)
+            # Supply the written entries to zipfile's central directory writer.
+            expected.filelist.append(info)
+        expected.start_dir = canonical.tell()
+    if canonical.getbuffer() != received:
+        raise ValueError("Archive bytes are not the canonical ZIP layout")
+    return method, files
 
 
 def read_archive(data, *, allow_legacy=False):
@@ -242,20 +301,12 @@ def read_archive(data, *, allow_legacy=False):
             validate_names(info.orig_filename for info in members)
             if sum(info.file_size for info in members) > MAX_TOTAL:
                 raise ValueError("Public archive exceeds size limit")
-            for info in members:
-                if (
-                    not stat.S_ISREG(info.external_attr >> 16) or info.is_dir()
-                    or info.compress_type != zipfile.ZIP_STORED or info.flag_bits & 1
-                    or info.file_size > MAX_FILE or info.compress_size != info.file_size
-                ):
-                    raise ValueError("Unexpected archive member format")
-            files = {info.filename: archive.read(info) for info in members}
-    except (zipfile.BadZipFile, UnicodeError, NotImplementedError, RuntimeError, EOFError):
+            if any(info.file_size > MAX_FILE for info in members):
+                raise ValueError("Public archive exceeds member size limit")
+            _, files = read_canonical_zip(data, archive, stamp=STAMP)
+    except (zipfile.BadZipFile, zlib.error, UnicodeError, NotImplementedError, RuntimeError, EOFError):
         raise ValueError("Malformed public archive or CRC mismatch") from None
-    manifest = verify_files(files, allow_legacy=allow_legacy)
-    if data != pack(files):
-        raise ValueError("Archive bytes are not the canonical public ZIP")
-    return manifest
+    return verify_files(files, allow_legacy=allow_legacy)
 
 
 def archive_name(identity):

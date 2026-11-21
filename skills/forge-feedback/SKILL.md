@@ -3,7 +3,7 @@ name: forge-feedback
 description: "持续积累项目工程经验与定制需求，在供方发起升级收集或用户明确要求时，按固定截点异步集中交付并登记采用结果；普通零散心得只落项目本地。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.5"
+  version: "0.4.0"
 ---
 
 # 工程经验积累与集中交付

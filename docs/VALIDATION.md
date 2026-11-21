@@ -4,7 +4,7 @@ Verify the smallest evidence that answers the question. The [public package tool
 
 | Check | What to record | Public release boundary |
 | --- | --- | --- |
-| Package | Manifest, exact bytes and deterministic rebuild | Static; inspect the Release digest for your artifact |
+| Package | Manifest, original asset digest and rebuilt tree digest | Static; inspect the Release digest for your artifact |
 | Discovery and load | Harness version, actual path, presence and load result | NotRun |
 | Native lifecycle | Effective tool schema, authorized reversible task, wait and close evidence | NotRun |
 | Optional third-party route | Version, protocol, actual routing evidence, timeout and close | NotRun |

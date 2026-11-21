@@ -3,7 +3,7 @@ name: forge-work-dispatch
 description: "按真实依赖冻结、路由和派发工单，依据已就绪的接收合同续接、核收并交实质回执；普通单步问答不启用整套流程。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.5"
+  version: "0.4.0"
 ---
 
 # 工程派工与回收

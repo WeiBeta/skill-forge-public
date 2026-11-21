@@ -3,7 +3,7 @@ name: forge-pm-management
 description: "创建、复用或轮换工程 PM 时，按实际执行通道初始化角色、权限、收件与有界等待合同；日常派工使用 work-dispatch。"
 license: AGPL-3.0-only
 metadata:
-  version: "0.3.5"
+  version: "0.4.0"
 ---
 
 # PM 创建与初始化

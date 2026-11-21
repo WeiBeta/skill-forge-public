@@ -7,6 +7,7 @@ Choose an executor by the work, then bind the actual model or execution mode ava
 | Work / 工作 | Example route / 选型示例 | Evidence / 核验 |
 | --- | --- | --- |
 | Repeatable checks / 固定核验 | Script, or Terra 6.1 low / 脚本，必要时用轻量代理 | Fixed input and output / 比对输入与输出 |
+| Governance and skill changes / 工程约束与技能修订 | Engineering specialist / 工程执行者 | Verify the changed behavior; keep lightweight workers on bounded tasks / 按变化的行为核验，轻量执行者承担边界清晰的小任务 |
 | Small bounded feature / 规格明确的小功能 | DS 4.1 Flash max | Contract tests / 契约测试 |
 | Implementation and repair / 常规实现与修复 | Sol 6.2 max | Independent reviewer with source and tests / 由实现外审查者核源码与测试 |
 | Coupled backend systems / 复杂后端 | Astra 6.2 xhigh | One independent senior reviewer / 一位高难度独审 |
@@ -25,6 +26,10 @@ If the project owner enables rush mode, keep only basic tasks suited to DS on DS
 | Native GPT subagents | Terra 6.1 low | Direct parent receives supported events or waits in an active turn / 直接父会话在有效回合内接事件或等待 |
 | Third-party subagents | DS 4.1 Flash high | Without reliable events, use bounded, low-frequency waits for known children / 无可靠事件时对已知子任务低频有界接收 |
 | Agent Bridge | DS 4.1 Flash high | Pull known tasks for one bounded window per call. Process pause or new work before the next window / 每次拉取一个有界窗口，先处理暂停或插单再续收 |
+
+For an orchestrator, select the exact ID from the installed CLI catalog. Start a fresh session and omit a separate effort field when the CLI does not support one. Record a bridge validation failure separately from a worker rejection; neither establishes the service’s effective effort.
+
+编排器按已安装 CLI 的目录选精确 ID。当前端将多个选项合组时，仍以 CLI 可用的选择器为准。新开会话；CLI 不支持独立强度参数时省略该字段。分别记录派发前校验、worker 拒绝与服务端实际档位。
 
 The controller receives substantive PM reports. Keep separate deadlines and resource ownership per task. Bind a mode with automatic effort by its host contract, omitting the effort field when required. Receipt of an output establishes delivery. Record internal model identity, cost and suitability only to the extent evidenced.
 
