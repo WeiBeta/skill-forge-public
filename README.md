@@ -1,16 +1,12 @@
 <div align="center">
 
-![A luminous forge coordinating an engineering team of agents](assets/hero.png)
+![Conceptual illustration of coordinated multi-agent engineering work](assets/hero.png)
 
 # 神机百炼 / skill-forge-public
 
-### Give every agent a role. Give every change a trail.
+**Templates, skills, and handoff contracts for running multiple coding agents without losing track of who changed what.**
 
-**An engineering playbook for teams made of agents.**
-
-Turn a capable coding assistant into a coordinated team: an engineering controller, a project manager, and specialists who know their scope, their handoff, and what “done” means.
-
-[简体中文](README.zh-CN.md) · **English** · [Start here](docs/QUICKSTART.md) · [Explore the architecture](docs/ARCHITECTURE.md)
+[简体中文](README.zh-CN.md) · **English** · [Quickstart](docs/QUICKSTART.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-6c63ff)
 ![Codex first](https://img.shields.io/badge/Codex-first-14b8a6)
@@ -18,22 +14,38 @@ Turn a capable coding assistant into a coordinated team: an engineering controll
 
 </div>
 
-## Build the team you actually need
+## Why this exists
 
-Parallel agents are useful when their work can be separated, reviewed, and brought back together. skill-forge supplies the engineering habits around that work: short rule entry points, role-specific detail, bounded work orders, meaningful completion receipts, and recovery records.
+Two coding agents edit the same area in parallel and step on each other's changes. Or a handoff comes back as "done, tests pass"—without saying which files moved, which inputs ran, or what stayed untested—so you end up digging through chat logs and stray diffs to reconstruct the state.
 
-Start with one agent and a small task. Add a PM and specialist roles as the project grows. Keep the process proportional to the work.
+`skill-forge-public` addresses that failure mode with plain-text engineering rules, nine focused skills, and adapter references. It is not a background scheduler or an orchestration daemon. Start with a short charter and one bounded task; add roles only when parallel work justifies the coordination cost.
 
-| What you want | What you get |
+## What you get
+
+| Failure mode | What the kit provides |
 | --- | --- |
-| More useful parallel work | Explicit dependencies, isolated write scopes, and clear integration ownership |
-| Less repeated context | A short project charter with pointers to the rules each role needs |
-| Consistent everyday work | Nine reusable skills for writing instructions, review, diagnosis, domain modeling, PM initialization, dispatch, bounded agent recovery, ledger reconciliation, and batched project feedback |
-| Clear handoffs | Fixed inputs, acceptance criteria, evidence, and honest `Unknown` / `NotRun` states |
-| Changes you can recover from | Before/candidate/after records, drift checks, and scoped recovery procedures |
-| A workflow that fits your tools | A Codex-native route and an optional, version-scoped OpenCodex reference |
+| Agents colliding on the same files | Explicit dependencies, isolated write scopes, one integration owner, and a single ledger writer |
+| Re-explaining project rules every turn | A short [project charter](templates/project/AGENTS.md) with pointers to role-specific detail |
+| Vague "done" handoffs | Fixed inputs, acceptance criteria, substantive receipts, and explicit `Unknown` / `NotRun` states |
+| Risky updates and silent overwrites | `before` / `candidate` / `after` records, drift checks, and diff-scoped recovery steps |
 
-## A small core. Room to grow.
+### Nine reusable skills
+
+Install only the skills your project uses; each lives under `skills/` with its own references:
+
+| Skill | Focus |
+| --- | --- |
+| [`forge-writing-for-agents`](skills/forge-writing-for-agents/SKILL.md) | Writing agent rules, handoff entries, and skill instructions |
+| [`forge-code-review`](skills/forge-code-review/SKILL.md) | Spec-and-evidence review of frozen candidates and diffs |
+| [`forge-diagnosing-bugs`](skills/forge-diagnosing-bugs/SKILL.md) | Layer-by-layer fault isolation from raw evidence |
+| [`forge-domain-modeling`](skills/forge-domain-modeling/SKILL.md) | Clarifying ambiguous terms, states, and authority boundaries |
+| [`forge-pm-management`](skills/forge-pm-management/SKILL.md) | Initializing a PM and binding its actual receiving channel |
+| [`forge-work-dispatch`](skills/forge-work-dispatch/SKILL.md) | Freezing work orders, routing tasks, and collecting receipts |
+| [`forge-agent-recovery`](skills/forge-agent-recovery/SKILL.md) | Bounded continuation (up to 3 attempts) on native agent transient 429/502 errors |
+| [`forge-ledger-reconcile`](skills/forge-ledger-reconcile/SKILL.md) | Reconciling project tracking entries against verified task evidence |
+| [`forge-feedback`](skills/forge-feedback/SKILL.md) | Accumulating local project lessons and delivering batched updates at a fixed cut-off |
+
+## Roles and flow
 
 ```mermaid
 flowchart LR
@@ -46,55 +58,56 @@ flowchart LR
     H --> C
 ```
 
-The controller owns scope and acceptance. Use [PM management](skills/forge-pm-management/SKILL.md) to bind the actual receiving channel, then [work dispatch](skills/forge-work-dispatch/SKILL.md) to send work and collect results. Specialists deliver inside their assigned paths. Independent review comes from someone who did not implement the change. Smaller projects can use fewer roles.
+- **Controller** owns scope, trade-offs, acceptance, and the authoritative ledger.
+- **PM** (optional) binds the real execution and receiving contract via [`forge-pm-management`](skills/forge-pm-management/SKILL.md), then runs work orders through [`forge-work-dispatch`](skills/forge-work-dispatch/SKILL.md). Keep both skill directories and their `references/` together when using a PM.
+- **Executors** deliver complete work packages (implementation, focused checks, and evidence) inside their assigned paths.
+- **Independent reviewer** is added only when risk or project rules call for one, and must come from an instance that did not implement the candidate.
 
-## Start with one complete task
+Small tasks do not need all four roles.
+
+## Try one reversible task first
 
 ```bash
 git clone https://github.com/WeiBeta/skill-forge-public.git
 cd skill-forge-public
 ```
 
-1. Read the [quickstart](docs/QUICKSTART.md) and adapt the [project charter](templates/project/AGENTS.md).
-2. Choose the skills and roles your project needs. Install them using your harness's documented project-local mechanism.
-3. Write one bounded work order: goal, fixed inputs, allowed paths, acceptance, and a completion receipt.
-4. Verify the result before increasing concurrency.
+The [quickstart](docs/QUICKSTART.md) walks through setup. The [sample work order](examples/task.md) describes a parser change. To try it, start with a small parser and tests in a copy of your project, or create a minimal fixture there. The parser should accept `ready` and `held`. The task is to reject a missing status while keeping both valid cases working.
 
-Configuration examples are reference files. Cloning this repository does not change your permissions, credentials, model routes, or global settings.
+1. From the clean Skill Forge checkout, run `python scripts/public_package.py verify .` with Python 3.10 or later. This checks the files against the [public manifest](docs/PACKAGES.md).
+2. In your **test copy**, adapt the [charter](templates/project/AGENTS.md) to the project's existing rules. Use your harness's project-local installation method and check that its destination is inside the copy. If your harness only supports user-level skills, use a separate test profile with its own skill directory. Confirm that the harness loads the skills from the location you chose.
+3. Give the executor the parser and its contract tests as its write scope. Ask for the exact change, the results for all three cases, and anything it could not run.
+4. Compare the result with the starting copy. To undo the trial in a working project, preserve later edits, restore the changes you can attribute to the trial, and check the affected files against their original state. The [recovery guide](docs/DEPLOYMENT-RECOVERY.md) covers this comparison.
 
-## Choose your route
+## Two routes and PM selection
 
-**Codex-native:** start with [the native adapter](adapters/codex-native/README.md). Check the interfaces and settings supported by your installed version.
+- **Native Codex.** The [native adapter](adapters/codex-native/README.md) shows how to check which tools and configuration fields your installation supports.
+- **Third-party models.** The [optional OpenCodex reference](adapters/opencodex/README.md) explains how to validate a routing layer. Its example wait settings apply to the versions listed there.
+- **Collecting results.** A native GPT parent receives events or waits in an active turn. A third-party PM without reliable events checks a known child at bounded intervals. A Bridge PM pulls the result from the instance that dispatched the task and checks for pauses between waits. See the [routing table](docs/WORK-DISPATCH-MODELS.md) and [Bridge receiving guide](skills/forge-pm-management/references/bridge-receive.md).
 
-**Third-party models:** [the OpenCodex reference](adapters/opencodex/README.md) shows how to think about an additional routing layer. Other routers and model combinations require their own validation.
+## What to check locally
 
-[Model routing and PM roles](docs/WORK-DISPATCH-MODELS.md) provides an optional task-based selection table and reception contracts for three PM types. This explanatory note stays outside the skills and is read only when choosing routes.
+The package verifier checks the files you received. On your own host, verify that the skills load, an executor can return a result, and a saved change can be restored. The [validation guide](docs/VALIDATION.md) and [runtime contract](docs/RUNTIME-CONTRACT.md) explain what evidence to keep. Mark a check `NotRun` if you skipped it, and an outcome `Unknown` if you lack the evidence to decide.
 
-These are engineering templates and skills, not a background scheduler or a promise of unattended operation. Runtime behavior, host discovery, resource release, and performance need verification in your environment. We do not claim universal zero-polling cost or a measured speedup from static checks.
+## Repository layout
 
-## Find your way around
-
-| Path | Purpose |
+| Path | Contents |
 | --- | --- |
-| [`templates/project/`](templates/project/AGENTS.md) | A project charter, role guides, and empty management templates |
-| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Nine core engineering skills and focused references |
-| [`adapters/`](adapters/codex-native/README.md) | Codex-native and optional OpenCodex guidance |
-| [`docs/`](docs/QUICKSTART.md) | Setup, collaboration, validation, and recovery guidance |
+| [`templates/project/`](templates/project/AGENTS.md) | Project charter template, role guides, management protocol, and empty ledgers |
+| [`skills/`](skills/forge-work-dispatch/SKILL.md) | Nine engineering skills and their on-demand `references/` |
+| [`examples/`](examples/task.md) | Synthetic work-order example for a small, reversible task |
+| [`adapters/`](adapters/codex-native/README.md) | Codex-native route and optional OpenCodex reference |
+| [`docs/`](docs/QUICKSTART.md) | Quickstart, architecture, runtime contract, permissions, validation, recovery, and upstream notes |
+| [`scripts/`](docs/PACKAGES.md) | Standalone bundle verifier and reproducible ZIP builder (`scripts/public_package.py`) |
 
-## Open by design, private where it matters
+## Public edition and contributing
 
-This repository is a generated public edition of skill-forge. It contains reusable methods and synthetic examples; customer deployments, real operation logs, credentials, and recovery archives stay outside the public edition. Each public release has its own content manifest and verification boundaries.
+`skill-forge-public` is a generated public edition containing reusable methods, synthetic examples, and its own manifest (`PUBLIC-MANIFEST.json`). Customer deployments, operational logs, credentials, and recovery archives never enter this repository.
 
-Issues and contributions are welcome. Share a minimal, sanitized reproduction and the behavior you expected. Improvements are incorporated into the maintained source and then regenerated here, keeping one source of truth.
+Issues and improvement proposals are welcome. Provide a minimal, sanitized reproduction and the behavior you expected, separating static checks from runtime observations. Accepted changes are integrated into the single maintained source first and then regenerated into this public repository.
 
 ## License and origins
 
-skill-forge's original and adapted content is licensed under [GNU AGPL v3 only](LICENSE). Selected foundational ideas come from [Matt Pocock's skills](https://github.com/mattpocock/skills); the upstream material retains its [MIT license and attribution](third_party/mattpocock/LICENSE.txt). See [the source notes](docs/UPSTREAM.md) for the fixed upstream baseline and modification boundaries.
+Original and adapted skill-forge content is licensed under [GNU AGPL v3 only](LICENSE). Selected foundational methods originate from [Matt Pocock's skills](https://github.com/mattpocock/skills) and retain their [MIT license and attribution](third_party/mattpocock/LICENSE.txt). See [docs/UPSTREAM.md](docs/UPSTREAM.md) for the pinned upstream baseline and modification boundaries.
 
-The cover illustration was generated for this project. It represents the workflow concept; it is not a product screenshot or performance evidence.
-
-<div align="center">
-
-**Build with intent. Delegate with clarity. Ship with evidence.**
-
-</div>
+*The cover image (`assets/hero.png`) is a conceptual illustration generated for this project; it is not a product screenshot or performance evidence.*

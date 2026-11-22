@@ -21,14 +21,14 @@
       "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
     },
     {
-      "bytes": 6022,
+      "bytes": 8824,
       "path": "README.md",
-      "sha256": "4601e2b4e7320cd9c7dbffc7e3a026b2b0e2213d4cfba20466cbe10ec5ff3f16"
+      "sha256": "da5779a3f643bd974a50897f86e68d1e841f89bc141520973b805b3f63d4a127"
     },
     {
-      "bytes": 5488,
+      "bytes": 8608,
       "path": "README.zh-CN.md",
-      "sha256": "0b0eeecc9788fa67efe1d11ff8b31faac4f292478f9a16e3381d342710f59b37"
+      "sha256": "50c10eafaac0335a9eb2fa7bb4d9c324ae7ede2a9b5b5d6569047c68bc8943b9"
     },
     {
       "bytes": 1767,
@@ -128,7 +128,7 @@
     {
       "bytes": 328,
       "path": "release.json",
-      "sha256": "342093a2a55e829d96f8731ce7553cf41f53c466f7d320853211f72d85374fab"
+      "sha256": "8ad4c45be7738e79927f07a35f6a6104c25dc403730d354e754363688ea846fc"
     },
     {
       "bytes": 14998,
@@ -313,7 +313,7 @@
   ],
   "kind": "public-source",
   "product_version": "0.4.0",
-  "public_revision": 1,
+  "public_revision": 2,
   "schema_version": 1,
-  "tree_sha256": "eb594d97f986afd7e30ab511d5b4c6b5c063a26873d2fd4ccd283e7ba85119d5"
+  "tree_sha256": "a9bd107ef4c546216eca6f415575f508e509889186ae4d4386c1a8466b1e7642"
 }
